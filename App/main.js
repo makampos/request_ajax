@@ -14,31 +14,44 @@
 /** X -------------------------------------------------------- */
 
 
-/** Promises --------------------------------------------------------  */
+/** Promises ------------------------------------------------- */
 
-var minhaPromise =  function() {
-    return new Promise(function(resolve, reject){
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET','https://api.github.com/users/makampos')
-        xhr.send(null);
+// var minhaPromise =  function() {
+//     return new Promise(function(resolve, reject){
+//         var xhr = new XMLHttpRequest();
+//         xhr.open('GET','https://api.github.com/users/makampos')
+//         xhr.send(null);
 
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4) {
-                if( xhr.status === 200) {
-                    resolve(JSON.parse(xhr.responseText));
-                } else {
-                    reject('Erro na requisição');
-                }
-            }
-        }
-    });
-}
+//         xhr.onreadystatechange = function() {
+//             if (xhr.readyState === 4) {
+//                 if( xhr.status === 200) {
+//                     resolve(JSON.parse(xhr.responseText));
+//                 } else {
+//                     reject('Erro na requisição');
+//                 }
+//             }
+//         }
+//     });
+// }
 
-minhaPromise()
+// minhaPromise()
+//     .then(function(response) {
+//         console.log(response);
+//     })
+//     .catch(function(error) {
+//         console.warn(error)
+//     })
+
+/** X --------------------------------------------------------  */
+
+
+/** Axios ---------------------------------------------------- */
+
+axios.get('https://api.github.com/users/makampos')
     .then(function(response) {
-        console.log(response);
+        console.log(response)
     })
-    .catch(function(error) {
+    .catch(function() {
         console.warn(error)
     })
 
